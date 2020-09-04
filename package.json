@@ -1,0 +1,61 @@
+{
+  "name": "yomp",
+  "version": "1.0.10",
+  "description": "Enjoy listening to music from osu! and youtube :3",
+  "main": "main.js",
+  "build": {
+    "productName": "YOMP",
+    "appId": "YOMP",
+    "copyright": "Copyright © 2019 ${author}",
+    "linux": {
+      "category": "Audio",
+      "icon": "assets/icons/icon.png"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icons/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "license": "license",
+      "artifactName": "${productName} Setup ${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName} Portable ${version}.${ext}"
+    }
+  },
+  "scripts": {
+    "restart":"./node_modules/.bin/electron-rebuild.cmd && electron .",
+    "start": "electron .",
+    "rebuild": "./node_modules/.bin/electron-rebuild.cmd",
+    "build": "./node_modules/.bin/electron-builder build",
+    "linux": "./node_modules/.bin/electron-builder build --linux snap",
+    "build32": "./node_modules/.bin/electron-builder build --ia32",
+    "postinstall": "./node_modules/.bin/electron-builder install-app-deps"
+  },
+  "author": "4FuN",
+  "email": "Dr.uma228@gmail.com",
+  "url": "https://github.com/SGezha/yomp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SGezha/yomp.git"
+  },
+  "devDependencies": {
+    "electron": "^6.0.10",
+    "electron-builder": "^20.44.4",
+    "electron-rebuild": "^1.8.6",
+    "register-scheme": "0.0.2"
+  },
+  "dependencies": {
+    "better-sqlite3-helper": "^2.1.1",
+    "discord-rpc": "^3.1.0",
+    "electron-download-manager": "^2.1.2",
+    "node-gyp": "^6.0.1",
+    "node-id3": "^0.1.11"
+  }
+}
